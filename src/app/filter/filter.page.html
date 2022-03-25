@@ -1,0 +1,106 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <div class="ion-text-left">
+      <ion-text>Filter</ion-text>
+    </div>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/search']" color="orange" mode="ios">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <div class="contain">
+          <h6>Gender</h6>
+          <button class="white-btn">Men</button>
+          <button class="white-btn">Female</button>
+          <button class="white-btn active">Unisex</button>
+        </div>
+      </ion-col>
+      <ion-col size="12">
+        <div class="contain">
+          <h6>AMENITIES</h6>
+          <button class="white-btn active">Parking</button>
+          <button class="white-btn">AC</button>
+          <button class="white-btn">Wifi</button>
+          <button class="white-btn">Fridge</button>
+          <button class="white-btn active">CCTV</button>
+          <button class="white-btn active">HouseKepping</button>
+          <button class="white-btn">Security</button>
+          <button class="white-btn active">Lift</button>
+          <button class="white-btn active">Drinking Water</button>
+          <button class="white-btn active">Power Backup</button>
+          <button class="white-btn">Snacks</button>
+        </div>
+      </ion-col>
+      <ion-col size="12">
+        <div class="contain">
+          <h6>Newly Luanched</h6>
+          <ion-toggle color="orange" mode="ios"></ion-toggle>
+        </div>
+      </ion-col>
+      <ion-col size="12">
+        <div class="contain">
+          <h6>Ratings Above</h6>
+          <ion-list>
+            <ion-radio-group>
+              <ion-item lines="none">
+                <ion-label>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                </ion-label>
+                <ion-radio color="orange" mode="md" slot="end" value="2"></ion-radio>
+              </ion-item>
+
+              <ion-item lines="none">
+                <ion-label>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                </ion-label>
+                <ion-radio color="orange" mode="md" slot="end" value="3"></ion-radio>
+              </ion-item>
+
+              <ion-item lines="none">
+                <ion-label>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                </ion-label>
+                <ion-radio color="orange" mode="md" slot="end" value="4"></ion-radio>
+              </ion-item>
+
+              <ion-item lines="none">
+                <ion-label>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                </ion-label>
+                <ion-radio color="orange" mode="md" slot="end" value="5"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-list>
+        </div>
+      </ion-col>
+      <ion-col size="12">
+        <div class="contain">
+          <h6>Pricing Range</h6>
+          <ion-item lines="none">
+            <ion-range id="dual-range" color="orange" dual-knobs pin min="7000" max="20000">
+            </ion-range>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

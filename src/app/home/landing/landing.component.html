@@ -1,0 +1,131 @@
+<ion-header class="ion-no-border" mode="ios">
+  <ion-toolbar color="transparent">
+    <div class="ion-text-center">
+      <img src="assets/svg/WORKINBUDDY.svg" alt="">
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true" scrollY="false">
+
+  <div class="backdrop" [ngClass]="backdropVisible ? 'fade-in' : 'fade'" tappable (click)="drawer.toggleDrawer('')"></div>
+  <app-drawerv (openStateChanged)="toggleBackdrop($event)" (parentChild)="liveLocation()" #drawer></app-drawerv>
+
+  <ion-buttons class="startButton_1" id="menuFloatButton">
+    <button (click)="openFirst()">
+      <ion-icon color="orange" name="menu-outline"></ion-icon> 
+    </button>
+  </ion-buttons>
+
+  <ion-buttons class="endButton" id="searchFloatButton">
+    <button (click)="presentModal()">
+      <ion-icon color="orange" name="search-outline"></ion-icon> 
+    </button>
+  </ion-buttons>
+
+  
+  <ion-buttons class="locationButton" id="liveFloatButton">
+    <button (click)="liveLocation()">
+      <ion-icon color="orange" name="locate-outline"></ion-icon>
+    </button>
+  </ion-buttons>
+
+  <button id="viewButton" (click)="viewVenue()"></button>
+  <div #mapElement class="map"></div>
+
+  <div id="VenueFun" (click)="drawer.toggleDrawer('Venue')"></div>
+  <div id="PackageFun" (click)="drawer.toggleDrawer('Package')"></div>
+  <div id="GroupFun" (click)="drawer.toggleDrawer('Group')"></div>
+
+  <ion-buttons class="newScanner" id="qrscanFloatButton">
+    <button [routerLink]="['/venue/scan-qr']">
+      <img src="assets/img/scanner.gif" style="border-radius: 50%;height: 35px;" alt="">
+    </button>
+  </ion-buttons>
+
+  <div class="bottomContain" *ngIf="locStatus">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div>
+            <ion-slides #slider [options]="slidesOptions" (ionSlideDidChange)="slideChanged()">
+              <ion-slide>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col (click)="drawer.toggleDrawer('Package')">
+                      <div>
+                        <button class="white-ecclips">
+                          <img src="assets/gif/icon1.png" alt="">
+                        </button>
+                        <div class="titleCard">
+                          <div class="title"> Purchase a Package </div>
+                          <div>
+                            <button>
+                              Activate Package
+                            </button>
+                          </div>
+                        </div>
+                      </div>  
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-slide>
+          
+              <ion-slide>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col (click)="drawer.toggleDrawer('Venue')">
+                      <div>
+                        <button class="white-ecclips">
+                          <img src="assets/gif/icon3.png" alt="">
+                        </button>
+                        <div class="titleCard">
+                          <div class="title"> Locate Venues </div>
+                          <div>
+                            <button>
+                              Explore
+                            </button>
+                          </div>
+                        </div>
+                      </div>  
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-slide>
+          
+              <ion-slide>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col (click)="drawer.toggleDrawer('Group') ">
+                      <div>
+                        <button class="white-ecclips">
+                          <img src="assets/gif/icon2.png" alt="">
+                        </button>
+                        <div class="titleCard">
+                          <div class="title"> Group Booking </div>
+                          <div>
+                            <button>
+                              Start Bookings
+                            </button>
+                          </div>
+                        </div>
+                      </div>  
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-slide>
+            </ion-slides>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+
+  <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="currentLoc()" color="white">
+      <ion-icon name="locate" color="primary" *ngIf="currentLocationS"></ion-icon>
+      <ion-icon name="locate" color="danger" *ngIf="!currentLocationS"></ion-icon>
+    </ion-fab-button>
+  </ion-fab> -->
+</ion-content>

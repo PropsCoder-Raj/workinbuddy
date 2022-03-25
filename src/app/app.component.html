@@ -1,0 +1,74 @@
+<ion-app>
+  <div class="backdrop" [ngClass]="backdropVisible ? 'fade-in' : 'fade'" tappable (click)="drawer.toggleDrawer('')"></div>
+  <app-drawerv (openStateChanged)="toggleBackdrop($event)" #drawer></app-drawerv>
+  
+  <ion-menu side="start" menuId="first" contentId="main">
+    <ion-header class="ion-no-border">
+    </ion-header>
+    <ion-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <div>
+              <img style="height: 6rem;width: 6rem;" src="{{userS.userPhotoUrl}}" class="center img" alt="">
+              <h4>{{userS.userName === '' ? 'User' : userS.userName}}</h4>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <img class="bgTop" src="assets/img/topShape.png" alt="">
+      <hr>
+      <ion-list>
+        <ion-item lines="none" (click)="closeFirst();" [routerLink]="['/profile']">
+          <img src="assets/icon/_user.png" slot="start" alt="">
+          <ion-label>Profile</ion-label>
+        </ion-item>
+        <ion-item lines="none" (click)="closeFirst();" [routerLink]="['/profile/my-favourite']">
+          <img src="assets/icon/_like.png" slot="start" alt="">
+          <ion-label>My Favourite</ion-label>
+        </ion-item>
+        <ion-item *ngIf="activeCheckins" lines="none" (click)="closeFirst();" [routerLink]="['/profile/active-checkins']">
+          <ion-icon name="shield-checkmark" slot="start" color="orange"></ion-icon>
+          <ion-label>Active Check-Ins</ion-label>
+        </ion-item>
+        <ion-item lines="none" (click)="closeFirst(); drawer.toggleDrawer('Package')">
+          <img src="assets/icon/_list.png" slot="start" alt="">
+          <ion-label>Packages</ion-label>
+        </ion-item>
+        <ion-item lines="none" (click)="closeFirst();" [routerLink]="['/support/referral-code']">
+          <img src="assets/icon/_change.png" slot="start" alt="">
+          <ion-label>Refer & Friend</ion-label>
+        </ion-item>
+      </ion-list>
+      <hr>
+      <ion-list>
+        <ion-item lines="none">
+          <img src="assets/icon/_faq.png" slot="start" alt="">
+          <ion-label>FAQs</ion-label>
+        </ion-item>
+        <ion-item lines="none" (click)="closeFirst()" [routerLink]="['/support/terms-conditions']">
+          <img src="assets/icon/_terms.png" slot="start" alt="" >
+          <ion-label>Terms & Conditions</ion-label>
+        </ion-item>
+        <ion-item lines="none" (click)="closeFirst()" [routerLink]="['/support/privacy-policy']">
+          <img src="assets/icon/_lock.png" slot="start" alt="">
+          <ion-label>Privacy Policy</ion-label>
+        </ion-item>
+        <ion-item lines="none" (click)="closeFirst()" [routerLink]="['/support/about-us']">
+          <img src="assets/icon/_group.png" slot="start" alt="">
+          <ion-label>About us</ion-label>
+        </ion-item>
+        <ion-item lines="none" (click)="closeFirst()" [routerLink]="['/support/contact-us']">
+          <img src="assets/img/contact-us.png" slot="start" alt="">
+          <ion-label>Contact Us</ion-label>
+        </ion-item>
+        <ion-item lines="none" (click)="logout(); closeFirst();">
+          <img src="assets/icon/_logout.png" slot="start" alt="">
+          <ion-label>Logout</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>

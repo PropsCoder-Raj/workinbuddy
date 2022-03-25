@@ -1,0 +1,250 @@
+<ion-header class="ion-no-border" mode="ios">
+  <ion-toolbar mode="ios" color="white">
+    <ion-buttons slot="start">
+      <ion-buttons slot="start">
+        <ion-back-button color="orange" text=""></ion-back-button>
+      </ion-buttons>
+    </ion-buttons>
+    <ion-title color="orange" mode="md">My Favourite</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true" [scrollEvents]="true">
+
+  <ion-segment (ionChange)="segmentChanged($event)" value="{{segmentValue}}">
+    <ion-segment-button value="Venue">
+      <ion-label>Venue</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Package">
+      <ion-label>Package</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ng-container *ngIf="segmentValue === 'Venue'">
+
+    <div class="container" *ngIf="venue.length === 0 && !scalatonP">
+      <div class="ion-text-center">
+        <img src="assets/img/favoriteList.png" alt="">
+      </div>
+      <div><b>No Favourites Venue</b></div>
+    </div>
+
+    <ion-grid>
+      <ion-row>
+
+        <ng-container *ngIf="scalatonP">
+          <ion-col size="6">
+            <div class="venue-cards">
+              <ion-card>
+                <ion-card-header>
+                  <ion-skeleton-text style="height: 100px;" animated></ion-skeleton-text>
+                </ion-card-header>
+                <ion-card-content>
+                  <h2>
+                    <ion-skeleton-text style="height: 16px;" animated></ion-skeleton-text>
+                  </h2>
+                  <div>
+                    <ion-skeleton-text style="height: 7px;margin-top: 17px;" animated></ion-skeleton-text>
+                  </div>
+                  <h6>
+                    <ion-skeleton-text style="height: 7px;margin-top: 5px;" animated></ion-skeleton-text>
+                  </h6>
+                </ion-card-content>
+              </ion-card>
+            </div>
+          </ion-col>
+          <ion-col size="6">
+            <div class="venue-cards">
+              <ion-card>
+                <ion-card-header>
+                  <ion-skeleton-text style="height: 100px;" animated></ion-skeleton-text>
+                </ion-card-header>
+                <ion-card-content>
+                  <h2>
+                    <ion-skeleton-text style="height: 16px;" animated></ion-skeleton-text>
+                  </h2>
+                  <div>
+                    <ion-skeleton-text style="height: 7px;margin-top: 17px;" animated></ion-skeleton-text>
+                  </div>
+                  <h6>
+                    <ion-skeleton-text style="height: 7px;margin-top: 5px;" animated></ion-skeleton-text>
+                  </h6>
+                </ion-card-content>
+              </ion-card>
+            </div>
+          </ion-col>
+        </ng-container>  
+
+        <ng-container *ngIf="venue.length > 0">
+          <ng-container *ngFor="let item of venue">
+            <ion-col size="6">
+              <div class="venue-cards">
+                <ion-card (click)="venueDetails(item.data.docId)">
+                  <ion-card-header>
+                    <ion-slides class="orange_Slide" pager="true">
+                      <ng-container *ngFor="let service of item.services">
+                        <ion-slide>
+                          <img *ngIf="service.type.includes('image')" src="{{service.icon}}" alt="" class="bg">
+                        </ion-slide>
+                      </ng-container>
+                    </ion-slides>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <h2>{{item.data.name}}</h2>
+                    <div>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+                    <h6>{{item.data.address}}</h6>
+                  </ion-card-content>
+                </ion-card>
+              </div>
+            </ion-col>  
+          </ng-container>
+        </ng-container>
+      </ion-row>
+    </ion-grid>
+
+  </ng-container>
+
+
+  <ng-container *ngIf="segmentValue === 'Package'">
+
+    <div class="container" *ngIf="package.length === 0 && !scalatonP">
+      <div class="ion-text-center">
+        <img src="assets/img/favoriteList.png" alt="">
+      </div>
+      <div><b>No Favourites Package</b></div>
+    </div>
+
+    <ion-grid>
+      <ion-row class="packages">
+
+        <ng-container *ngIf="scalatonP">
+          <ion-col class="items" size="6">
+            <ion-card mode="ios">
+              <ion-card-header>
+                <p class="ion-text-center"><ion-skeleton-text style="width: 30%;margin-left: 35%;height: 16px;" animated></ion-skeleton-text></p>
+              </ion-card-header>
+              <ion-card-content>
+                <p class="ion-text-center"><ion-skeleton-text style="width: 60%;margin-left: 20%;height: 30px;" animated></ion-skeleton-text></p>
+                <br>
+                <ion-row style="border: unset;">
+                  <ion-col class="ion-text-center" size="1">
+                    <ion-skeleton-text style="height: 10px;" animated></ion-skeleton-text>
+                  </ion-col>
+                  <ion-col size="11" class="ion-text-center">
+                    <ion-skeleton-text style="height: 10px;" animated></ion-skeleton-text>
+                  </ion-col>
+                </ion-row>
+                
+                <ion-row style="border: unset;">
+                  <ion-col class="ion-text-center" size="1">
+                    <ion-skeleton-text style="height: 10px;" animated></ion-skeleton-text>
+                  </ion-col>
+                  <ion-col size="11" class="ion-text-center">
+                    <ion-skeleton-text style="height: 10px;" animated></ion-skeleton-text>
+                    <ion-skeleton-text style="height: 10px;" animated></ion-skeleton-text>
+                  </ion-col>
+                </ion-row>
+                
+                <ion-row style="border: unset;">
+                  <ion-col class="ion-text-center" size="1">
+                    <ion-skeleton-text style="height: 10px;" animated></ion-skeleton-text>
+                  </ion-col>
+                  <ion-col size="11" class="ion-text-center">
+                    <ion-skeleton-text style="height: 10px;" animated></ion-skeleton-text>
+                  </ion-col>
+                </ion-row>
+              </ion-card-content>
+            </ion-card>  
+          </ion-col>
+          <ion-col class="items" size="6">
+            <ion-card mode="ios">
+              <ion-card-header>
+                <p class="ion-text-center"><ion-skeleton-text style="width: 30%;margin-left: 35%;height: 16px;" animated></ion-skeleton-text></p>
+              </ion-card-header>
+              <ion-card-content>
+                <p class="ion-text-center"><ion-skeleton-text style="width: 60%;margin-left: 20%;height: 30px;" animated></ion-skeleton-text></p>
+                <br>
+                <ion-row style="border: unset;">
+                  <ion-col class="ion-text-center" size="1">
+                    <ion-skeleton-text style="height: 10px;" animated></ion-skeleton-text>
+                  </ion-col>
+                  <ion-col size="11" class="ion-text-center">
+                    <ion-skeleton-text style="height: 10px;" animated></ion-skeleton-text>
+                  </ion-col>
+                </ion-row>
+                
+                <ion-row style="border: unset;">
+                  <ion-col class="ion-text-center" size="1">
+                    <ion-skeleton-text style="height: 10px;" animated></ion-skeleton-text>
+                  </ion-col>
+                  <ion-col size="11" class="ion-text-center">
+                    <ion-skeleton-text style="height: 10px;" animated></ion-skeleton-text>
+                    <ion-skeleton-text style="height: 10px;" animated></ion-skeleton-text>
+                  </ion-col>
+                </ion-row>
+                
+                <ion-row style="border: unset;">
+                  <ion-col class="ion-text-center" size="1">
+                    <ion-skeleton-text style="height: 10px;" animated></ion-skeleton-text>
+                  </ion-col>
+                  <ion-col size="11" class="ion-text-center">
+                    <ion-skeleton-text style="height: 10px;" animated></ion-skeleton-text>
+                  </ion-col>
+                </ion-row>
+              </ion-card-content>
+            </ion-card>  
+          </ion-col>
+        </ng-container>
+
+        <ng-container>
+          <ion-col class="items" size="6" *ngFor="let item of package">
+            <ion-card mode="ios" (click)="packageDetails(item.data.docId)">
+              <ion-card-header>
+                <p>{{item.data.name}}</p>
+              </ion-card-header>
+              <ion-card-content>
+                <p>AED {{item.data.amount}}</p>
+                <br>
+                <ion-row>
+                  <ion-col class="col_1" size="1">
+                    <ion-icon size="small" color="orange" name="checkmark-circle"></ion-icon>
+                  </ion-col>
+                  <ion-col size="11">
+                    {{item.data.checkIns}} CheckIns
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col class="col_1" size="1">
+                    <ion-icon size="small" color="orange" name="checkmark-circle"></ion-icon>
+                  </ion-col>
+                  <ion-col size="11">
+                    Free {{item.data.hours}} Meeting Room Hours
+                  </ion-col>
+                </ion-row>
+                <ion-row style="border: unset;">
+                  <ion-col class="col_1" size="1">
+                    <ion-icon size="small" color="orange" name="checkmark-circle"></ion-icon>
+                  </ion-col>
+                  <ion-col size="11">
+                    Free 
+                    <ng-container *ngFor="let feature of item.features">
+                      <span>{{feature.name}} &nbsp;</span>
+                    </ng-container>
+                  </ion-col>
+                </ion-row>
+              </ion-card-content>
+            </ion-card>  
+          </ion-col>
+        </ng-container>
+      </ion-row>
+    </ion-grid>
+    
+  </ng-container>
+
+</ion-content>

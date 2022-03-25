@@ -1,0 +1,219 @@
+<ion-header class="ion-no-border" mode="ios">
+  <ion-toolbar mode="ios" color="white">
+    <ion-buttons slot="start">
+      <ion-buttons slot="start">
+        <ion-back-button color="orange" text=""></ion-back-button>
+      </ion-buttons>
+    </ion-buttons>
+    <ion-title color="orange">Checkout</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true" [scrollEvents]="true" >
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <div class="card-details">
+          <h5>Package Name: {{packageName}}</h5>
+          <h5>Package Validity: {{packageValidity}} Days</h5>
+          <h5>No of Check-ins Allowed: {{checkIns}}</h5>
+          <h5>No of Free Hours to Meeting: {{hours}} Hours</h5>
+        </div>
+      </ion-col>
+
+      <ion-col size="12" style="padding: unset;">
+        <div class="packageAmount">
+          <ion-item lines="none">
+            <ion-label>Package Amount:</ion-label>
+            <ion-text slot="end">{{amount}} AED</ion-text>
+          </ion-item>
+        </div>
+      </ion-col>
+
+      <ion-col size="12" *ngIf="firstUserStatus" style="padding: unset;">
+        <div class="grayItem">
+          <ion-item lines="none">
+            <ion-label>First Time Discount :</ion-label>
+            <ion-text slot="end">-{{amounFirstDiscountDiscount}} AED</ion-text>
+          </ion-item>
+        </div>
+      </ion-col>
+
+      <ion-col size="12" *ngIf="!firstUserStatus" style="padding: unset;">
+        <div class="grayItem">
+          <ion-item lines="none">
+            <ion-label>Flat Discount Amount:</ion-label>
+            <ion-text slot="end">-{{amountFlatDiscount}} AED</ion-text>
+          </ion-item>
+        </div>
+      </ion-col>
+
+      
+      <ion-col size="12" *ngIf="couponsCodeApplyDisountAmount !== 0" style="padding: unset;">
+        <div class="grayItem">
+          <ion-item lines="none">
+            <ion-label>Coupon code apply:</ion-label>
+            <ion-text slot="end">-{{couponsCodeDisountAmount}} AED</ion-text>
+          </ion-item>
+        </div>
+      </ion-col>
+      
+
+      <ion-col size="12" *ngIf="referralCodeApplyDisountAmount !== 0" style="padding: unset;">
+        <div class="grayItem">
+          <ion-item lines="none">
+            <ion-label>Referral code apply:</ion-label>
+            <ion-text slot="end">-{{referralCodeDisountAmount}} AED</ion-text>
+          </ion-item>
+        </div>
+      </ion-col>
+
+      <ion-col size="12" *ngIf="couponsCodeApplyDisountAmount === 0">
+        <ion-item lines="none" class="referalCodeCheckbox">
+          <ion-checkbox mode="ios" slot="start" [(ngModel)]="couponsStatus" (ionChange)="couponStatus()"  [ngModelOptions]="{standalone: true}" color="primary" style="margin-right: 10px" ngDefaultControl></ion-checkbox>
+          <ion-label>Apply Coupon</ion-label>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="12" *ngIf="couponsStatus && couponsCodeApplyDisountAmount === 0">
+        <div class="referal-card">
+          <ion-item lines="none" class="ion-no-padding">
+            <input type="text" [(ngModel)]="couponsCode" placeholder="Coupon Code" ngDefaultControl>
+            <ion-spinner slot="end" mode="md" color="orange" *ngIf="couponsLoader"></ion-spinner>
+            <ion-text slot="end" color="orange" *ngIf="!couponsLoader" (click)="couponsApply()">Apply</ion-text>
+          </ion-item>
+        </div>  
+      </ion-col>
+
+
+
+      
+      <ion-col size="12" *ngIf="referralCodeApplyDisountAmount === 0 && amount >= minPackageAmt">
+        <ion-item lines="none" class="referalCodeCheckbox">
+          <ion-checkbox mode="ios" slot="start" [(ngModel)]="referralStatus" color="primary" ngDefaultControl style="margin-right: 10px"></ion-checkbox>
+          <ion-label>Apply Referral</ion-label>
+        </ion-item>
+      </ion-col>
+
+      
+      <ion-col size="12" *ngIf="referralStatus && referralCodeApplyDisountAmount === 0">
+        <div class="referal-card">
+          <ion-item lines="none" class="ion-no-padding">
+            <input type="text" [(ngModel)]="referralCode" ngDefaultControl placeholder="Referral Code">
+            <ion-spinner slot="end" mode="md" color="orange" *ngIf="referralLoader"></ion-spinner>
+            <ion-text slot="end" color="orange" *ngIf="!referralLoader" (click)="referralApply()">Apply</ion-text>
+          </ion-item>
+        </div>  
+      </ion-col>
+
+      
+      <!-- <ion-col size="12" *ngIf="autoRenew">
+        <ion-item lines="none" class="referalCodeCheckbox">
+          <ion-label>Auto Renewal</ion-label>
+          <ion-toggle slot="end" [checked]="userSelectedAutoRenew" ngDefaultControl [(ngModel)]="userSelectedAutoRenew"></ion-toggle>
+        </ion-item>
+      </ion-col> -->
+
+      <ion-col size="12" style="padding: unset;">
+        <div class="totalAmount">
+          <ion-item lines="none">
+            <ion-label>Final Package Amount:</ion-label>
+            <ion-text slot="end">{{ totalAmount }} AED</ion-text>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>     
+  
+  
+  <div class="paymentProccess">
+    <ion-grid *ngIf="addNewCard">
+      <ion-row style="background: #ffd9c14f;padding: 5px 5px;border-radius: 15px;">
+        <ion-col size="12">
+          <h3>Add Card</h3>
+        </ion-col>
+        <ion-col size="12">
+          <ion-item class="inputSection" lines="none">
+            <ion-icon name="person" slot="start"></ion-icon>
+            <input class="cardNumber" ngDefaultControl [(ngModel)]="cardHolderName" type="text" placeholder="Card Holder Name" slot="start">
+          </ion-item>
+        </ion-col>
+        <ion-col size="12">
+          <ion-item class="inputSection" lines="none">
+            <ion-icon name="card" slot="start"></ion-icon>
+            <input class="cardNumber" ngDefaultControl [(ngModel)]="cardNumber" type="text" placeholder="Card Number" slot="start">
+          </ion-item>
+        </ion-col>
+        <ion-col size="3">
+          <ion-item class="inputSection" lines="none">
+            <input class="mm" type="text" ngDefaultControl [(ngModel)]="expiry_month" placeholder="MM" slot="start">
+          </ion-item>
+        </ion-col>
+        <ion-col size="3">
+          <ion-item class="inputSection" lines="none">
+            <input class="yy" type="text" ngDefaultControl [(ngModel)]="expiry_year" placeholder="YYYY" slot="start">
+          </ion-item>
+        </ion-col>
+        <ion-col size="3">
+        </ion-col>
+        <ion-col size="3">
+          <ion-item class="inputSection" lines="none">
+            <input class="cvv" type="text" ngDefaultControl [(ngModel)]="cvv" placeholder="CVV" slot="start">
+          </ion-item>
+        </ion-col>
+        <ion-col size="12">
+          <!-- TODO: Remove Item Design -->
+          <ion-item color="transparent" lines="none">
+            <ion-label>Securely Save Card</ion-label>
+            <ion-checkbox slot="start" ngDefaultControl [(ngModel)]="saveCard" color="primary"></ion-checkbox>
+          </ion-item>
+        </ion-col>
+      
+        <ion-col size="6">
+          <ion-button mode="ios" [disabled]="loader" size="default" expand="block" (click)="checkoutPayment()"> <ng-container *ngIf="!loader"> Pay AED {{payableAmount}}</ng-container> <ion-spinner mode="md" *ngIf="loader"></ion-spinner></ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button mode="ios" [disabled]="loader" size="default" expand="block" fill="outline" (click)="addNewCard = false">CLEAR</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+  
+    <ion-list *ngIf="!addNewCard">
+      <ion-radio-group ngDefaultControl [(ngModel)]="sourceId">
+        <ion-list-header>
+          <ion-label style="font-size: x-small;">CREDIT/DEBIT CARDS</ion-label>
+        </ion-list-header>
+        <ng-container *ngFor="let card of cards">
+          <ion-item lines="none" (click)="getCardDetails(card)">
+            <ion-label>{{card.number}}</ion-label>
+            <ion-radio slot="start" value="{{card.srcId}}" ></ion-radio>
+          </ion-item>
+        </ng-container>  
+      </ion-radio-group>
+      <ion-item lines="none" (click)="addNewCard = true">
+        <ion-icon size="large" name="add-circle-outline" color="orange" slot="start"></ion-icon>
+        <ion-label color="orange" style="color: #ff6000;">ADD NEW CARD</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>
+
+<ion-footer class="ion-no-border" color="white">
+  <div class="cardAvailable" style="margin: 10px;" *ngIf="!addNewCard && sourceId !== ''">
+    <ion-button [disabled]="loader" mode="ios" size="default" expand="block" (click)="checkoutPayment()">
+      <ng-container *ngIf="!loader"> Pay AED {{payableAmount}}</ng-container> 
+      <ion-spinner mode="md" *ngIf="loader"></ion-spinner>
+    </ion-button>
+  </div>
+  <!-- <ion-item lines="none">
+    <button class="getPackage" (click)="checkoutPayment()">
+      <ng-container *ngIf="!loader">
+        Continue for Payment
+      </ng-container>
+      <ion-spinner color="white" *ngIf="loader"></ion-spinner>
+    </button>
+  </ion-item> -->
+</ion-footer>

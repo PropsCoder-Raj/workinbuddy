@@ -1,0 +1,25 @@
+{
+    "appId": "com.anamk.workinbuddy",
+    "appName": "WorkinBuddy",
+    "bundledWebRuntime": false,
+    "npmClient": "npm",
+    "webDir": "www",
+    "plugins": {
+      "SplashScreen": {
+        "launchAutoHide": false,
+        "launchShowDuration": 5000
+      },
+      "GoogleAuth":{
+        "scope":[
+          "profile",
+          "email"
+        ],
+        "serverClientId": "1032809104603-r6rs3bilu4fc1mbfumkmk660bmhq5c92.apps.googleusercontent.com",
+        "forceCodeForRefreshToken": true
+      },
+      "PushNotifications": {
+        "presentationOptions": ["badge", "sound", "alert"]
+      }
+    },
+    "cordova": {}
+}

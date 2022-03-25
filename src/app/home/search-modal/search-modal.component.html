@@ -1,0 +1,47 @@
+<ion-header class="ion-no-border" mode="ios">
+  <ion-toolbar mode="ios" color="white">
+    <ion-title color="orange" class="ion-text-center" mode="md">Search Locations</ion-title>
+    <ion-buttons slot="end">
+      <ion-buttons slot="start" (click)="close()">
+        <ion-icon color="orange" name="close-outline"></ion-icon>
+      </ion-buttons>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true" [scrollEvents]="true">
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item lines="none" class="package-list-search-contain ion-no-padding">
+          <div class="input-container">
+            <input class="input-field" type="text" placeholder="Search Places" name="search" [(ngModel)]="searchTerm" [ngModelOptions]="{standalone: true}"
+              id="seachInput" (keyup)="initService()">
+            <ion-icon class="icon" name="search-outline"></ion-icon>
+          </div>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12" class="place-names">
+        <ng-container *ngIf="searchTerm !== ''">
+          <div *ngFor="let item of placesArr; let i = index" id="chipContent{{i + 1}}">
+            <ion-chip *ngIf="item !== null" color="dark" expand="full" (click)="getInfo(item)">
+              <ion-avatar>
+                <ion-icon name="location-outline" style="font-size: x-large;"></ion-icon>
+              </ion-avatar>
+              <ion-label>{{item.description}}</ion-label>
+            </ion-chip>
+          </div>
+        </ng-container>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ng-container *ngIf="searchTerm === undefined || searchTerm === ''">
+    <div class="container">
+      <img src="assets/img/searchLocation.png" alt="">
+      <div><b>No Search Place</b></div>
+    </div>
+  </ng-container>
+
+</ion-content>

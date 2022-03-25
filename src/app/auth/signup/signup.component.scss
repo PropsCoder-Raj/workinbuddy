@@ -1,0 +1,184 @@
+ion-toolbar {
+
+    --background: transparent;
+  
+    ion-button {
+      ion-icon {
+        font-size: xx-large;
+        font-weight: bold;
+      }
+    }
+  }
+  
+  
+  
+  ion-content {
+  
+      
+      .google-button{
+          height: 50px;
+          line-height: normal;
+          box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+          img{
+              margin: 10px;
+          }
+      }
+  
+      .facebook-button{
+          box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+          height: 50px;
+          line-height: normal;
+          --background: #3b5998;
+          i{
+              color: white;
+              font-size: 20px;
+              margin: 10px;
+          }
+      }
+  
+    .container {
+      text-align: center;
+  
+      position: linear;
+      left: 0;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+  
+    }
+  
+    .bgTop {
+      position: fixed;
+      top: -15%;
+      height: auto;
+      z-index: -1;
+    }
+  
+    .logo1 {
+      position: fixed;
+      top: 0%;
+      left: 0%;
+      height: 120px;
+      z-index: 0;
+    }
+  
+    .logo2 {
+      position: fixed;
+      bottom: 1%;
+      right: 0%;
+      height: auto;
+      z-index: 0;
+    }
+  
+    .bgBottom {
+      position: fixed;
+      bottom: 0%;
+      height: auto;
+      z-index: -1;
+    }
+  
+    .MainContain {
+      padding: 0 30px;
+  
+      h1 {
+        font-style: normal;
+        font-weight: bold;
+        font-size: xx-large;
+        line-height: 45px;
+  
+        color: #FF6000;
+      }
+  
+      label {
+        font-style: normal;
+        font-weight: normal;
+        font-size: small;
+        line-height: 18px;
+  
+        color: #FF6000;
+      }
+  
+      input {
+        width: 100%;
+        border: 1px solid #FF6000;
+        border-radius: 10px;
+        margin-top: 5px;
+        font-size: small;
+        padding: 10px;
+        outline: unset;
+      }
+  
+      .forgot-password {
+        font-size: small;
+        color: #FF6000;
+        float: right;
+        background: transparent;
+      }
+  
+      .btn-icons {
+        padding: 5px;
+        margin: 5px;
+        border-radius: 5px;
+      }
+    }
+  
+    .OTP {
+      width: 100%;
+      padding-left: 15px;
+      letter-spacing: 42px;
+      border: 0;
+      text-align: center;
+      // background-image: linear-gradient(to left, black 70%, rgba(255, 255, 255, 0) 0%);
+      background-position: bottom;
+      background-size: 50px 1px;
+      background-repeat: repeat-x;
+      background-position-x: 35px;
+    }
+  
+    .ionButton {
+      text-align: center;
+  
+      ion-button {
+        width: auto;
+        --background: linear-gradient(to right top, #FF6000, #f99958);
+        font-family: 'Geometria';
+        color: #fff;
+        border-radius: 15px;
+        box-shadow: unset;
+        font-size: large;
+      }
+    }
+  
+  
+    .bottomDiv {
+      -webkit-align-items: flex-start;
+      align-items: flex-start;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-flex: 0;
+      box-flex: 0;
+      -webkit-flex-grow: 0;
+      flex-grow: 0;
+      -webkit-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-justify-content: space-between;
+      justify-content: space-between;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+  
+      button {
+        text-align: center;
+        height: 50px;
+        width: 30%;
+        margin: 0 10%;
+        color: #fff;
+        background: #FF6000;
+        border: solid 1px #fff;
+        border-radius: 10px;
+        font-size: large;
+      }
+  
+    }
+  }

@@ -1,0 +1,66 @@
+<ion-header class="ion-no-border"  mode="ios">
+  <ion-toolbar color="white"  mode="ios">
+    <ion-buttons slot="start">
+      <ion-buttons slot="start">
+        <ion-back-button color="orange" text=""></ion-back-button>
+      </ion-buttons>
+    </ion-buttons>
+    <ion-title color="orange" mode="md">Check-Ins History</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container" *ngIf="!checkinsStatus && !skeletonStatus">
+    <img src="assets/img/venueCheckIn.png" alt="">
+    <h5>No check-ins</h5>
+  </div>
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ng-container *ngIf="skeletonStatus">
+          <ion-item lines="full">
+            <ion-label>
+              <ion-row>
+                <ion-col>
+                  <h3><ion-skeleton-text style="height: 13px;" animated></ion-skeleton-text></h3>
+                  <div><ion-skeleton-text style="height: 7px;margin-top: 5px;" animated></ion-skeleton-text></div>
+                </ion-col>
+              </ion-row>
+            </ion-label>
+            <ion-icon slot="end" name="ellipse" color="medium"></ion-icon>
+          </ion-item>
+          <ion-item lines="full">
+            <ion-label>
+              <ion-row>
+                <ion-col>
+                  <h3><ion-skeleton-text style="height: 13px;" animated></ion-skeleton-text></h3>
+                  <div><ion-skeleton-text style="height: 7px;margin-top: 5px;" animated></ion-skeleton-text></div>
+                </ion-col>
+              </ion-row>
+            </ion-label>
+            <ion-icon slot="end" name="ellipse" color="medium"></ion-icon>
+          </ion-item>
+        </ng-container>
+        <ng-container *ngIf="!skeletonStatus && checkinsStatus">
+          <ng-container *ngFor="let item of checkinsArr">
+            <ion-item lines="full">
+              <ion-label>
+                <ion-row>
+                  <ion-col>
+                    <h3><ion-text color="orange">{{item.venueData.name}}</ion-text></h3>
+                    <div>{{item.data.timestamp.toDate() | date : 'dd/MM/yyyy hh:mm a'}}</div>
+                  </ion-col>
+                </ion-row>
+              </ion-label>
+              <ion-icon *ngIf="item.data.status === 0" slot="end" name="time" color="warning"></ion-icon>
+              <ion-icon *ngIf="item.data.status === 1" slot="end" name="shield-checkmark" color="success"></ion-icon>
+              <ion-icon *ngIf="item.data.status === 2" slot="end" name="close-circle" color="danger"></ion-icon>
+            </ion-item>
+          </ng-container>
+        </ng-container>  
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

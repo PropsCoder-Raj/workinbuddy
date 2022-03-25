@@ -1,0 +1,305 @@
+ion-toolbar {
+
+    --background: transparent;
+  
+    ion-button {
+      ion-icon {
+        font-size: xx-large;
+        font-weight: bold;
+      }
+    }
+  }
+  
+  ion-content {
+  
+    .paymentProccess {
+      ion-list {
+        ion-item {
+          ion-label {
+            font-family: "Geometria";
+          }
+        }
+      }
+  
+      ion-grid {
+        padding: 0 20px;
+  
+        .inputSection {
+          font-size: medium;
+          border: solid 1px #ff6000;
+          border-radius: 10px;
+          outline: unset;
+  
+          ion-icon {
+            margin-right: 10px;
+          }
+  
+          .cardNumber {
+            border: unset;
+            width: 100%;
+            outline: unset;
+          }
+  
+          .mm {
+            border: unset;
+            text-align: center;
+            width: 100%;
+            outline: unset;
+          }
+  
+          .yy {
+            border: unset;
+            text-align: center;
+            width: 100%;
+            outline: unset;
+          }
+  
+          .cvv {
+            border: unset;
+            text-align: center;
+            width: 100%;
+            outline: unset;
+          }
+        }
+  
+        .editForm {
+          h1 {
+            font-style: normal;
+            font-weight: bold;
+            font-size: xx-large;
+            line-height: 45px;
+  
+            color: #FF6000;
+          }
+  
+          label {
+            font-style: normal;
+            font-weight: normal;
+            font-size: small;
+            line-height: 18px;
+  
+            color: #FF6000;
+          }
+  
+          input {
+            outline: unset;
+            width: 100%;
+            border: 1px solid #FF6000;
+            border-radius: 10px;
+            margin-top: 5px;
+            font-size: small;
+            padding: 10px;
+          }
+  
+          ion-button {
+            width: auto;
+            --background: linear-gradient(to right top, #FF6000, #f99958);
+            font-family: 'Geometria';
+            color: #fff;
+            border-radius: 15px;
+            margin: 15px;
+            box-shadow: unset;
+            font-size: large;
+          }
+        }
+      }
+  
+      .cardAvailable {
+        ion-button {
+          --background: linear-gradient(to right top, #FF6000, #f99958);
+          font-family: 'Geometria';
+          color: #fff;
+          border-radius: 15px;
+          margin: 15px;
+          box-shadow: unset;
+          font-size: large;
+        }
+      }
+    }
+  
+    ion-grid {
+  
+      .referalCodeCheckbox {
+        ion-checkbox {
+          height: 23px;
+          width: 23px;
+          margin-right: 10px;
+        }
+  
+        ion-label {
+          font-family: "Geometria";
+        }
+      }
+  
+      h3 {
+        font-weight: bold;
+      }
+  
+      .text {
+        font-size: small;
+        font-weight: bold;
+      }
+  
+      .card-details {
+        padding: 10px;
+        background: #fff;
+  
+        border: 1px solid #FF6000;
+        box-sizing: border-box;
+        border-radius: 10px;
+  
+        h6 {
+          padding: unset;
+          margin: unset;
+          font-style: normal;
+          font-weight: 500;
+          font-size: medium;
+          line-height: 35px;
+  
+          font-weight: bold;
+          letter-spacing: -0.3px;
+  
+          color: #000000;
+        }
+  
+        ion-badge {
+          padding: 5px 10px;
+          color: white;
+          margin: 5px 15px 5px 0;
+          border-radius: 15px;
+        }
+  
+        .text-contain {
+          font-size: small;
+        }
+      }
+  
+      .packageAmount {
+        ion-item {
+          --background: transparent;
+  
+          ion-label {
+            padding: unset;
+            margin: unset;
+            font-family: "Geometria";
+            font-size: small;
+            font-weight: bold;
+          }
+  
+          ion-text {
+            font-size: small;
+            font-weight: bold;
+          }
+        }
+      }
+  
+      .grayItem {
+        ion-item {
+          --background: transparent;
+  
+          ion-label {
+            padding: unset;
+            margin: unset;
+            color: gray;
+            font-family: "Geometria";
+            font-size: small;
+            font-weight: bold;
+          }
+  
+          ion-text {
+            color: gray;
+            font-size: small;
+            font-weight: bold;
+          }
+        }
+      }
+  
+      .referal-card {
+        ion-item {
+          --background: transparent;
+  
+          input {
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #FF6000;
+            box-sizing: border-box;
+            border-radius: 10px;
+            outline: unset;
+          }
+        }
+      }
+  
+      .totalAmount {
+        ion-item {
+          --background: transparent;
+  
+          ion-label {
+            padding: unset;
+            margin: unset;
+            color: #FF6000;
+            font-family: "Geometria";
+            font-size: small;
+            font-weight: bold;
+          }
+  
+          ion-text {
+            color: #FF6000;
+            font-size: small;
+            font-weight: bold;
+          }
+        }
+      }
+  
+      .checkbox-card {
+        ion-item {
+          --background: transparent;
+        }
+      }
+  
+      .getBtn {
+        ion-item {
+          --background: transparent;
+          padding: 10px 5px;
+  
+          ion-icon {
+            font-size: xx-large;
+          }
+  
+          .getPackage {
+            text-align: center;
+            height: 50px;
+            width: 100%;
+            color: #fff;
+            background: #FF6000;
+            border: solid 1px #fff;
+            border-radius: 10px;
+            font-size: large;
+          }
+        }
+      }
+    }
+  }
+  
+  ion-footer {
+    background: white;
+  
+    ion-item {
+      padding: 10px 5px;
+  
+      ion-icon {
+        font-size: xx-large;
+      }
+  
+      .getPackage {
+        text-align: center;
+        height: 50px;
+        width: 100%;
+        color: #fff;
+        background: linear-gradient(to right top, #FF6000, #f99958);
+        font-family: 'Geometria';
+        border: solid 1px #fff;
+        border-radius: 10px;
+        font-size: large;
+      }
+    }
+  }

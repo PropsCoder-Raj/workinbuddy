@@ -1,0 +1,110 @@
+ion-toolbar {
+
+    --background: transparent;
+  ion-button {
+    ion-icon {
+      font-size: xx-large;
+      font-weight: bold;
+    }
+  }
+}
+
+ion-content{
+    .dicount-cart{
+        background: linear-gradient(to left bottom, #FF6000, #FFAA70);
+        background-size: contain;
+        height: 158px;
+        color: white;
+        border-radius: 20px;
+        .one_half{
+            margin: 15px 0;
+            border-right: solid 1px #fff;
+
+            h1{
+                font-weight: bold;
+            }
+        }
+
+        .two_half{
+            margin: 20px 0;
+        }
+    }
+
+    .card-details{
+        padding: 10px;
+        background: #fff;
+                
+        border: 1px solid #FF6000;
+        box-sizing: border-box;
+        border-radius: 10px;
+
+        h6{
+            padding: unset;
+            margin: unset;
+            font-style: normal;
+            font-weight: 500;
+            font-size: medium;
+            line-height: 35px;
+
+            font-weight: bold;
+            letter-spacing: -0.3px;
+
+            color: #000000;
+        }
+
+        ion-badge{
+            padding: 5px 10px;
+            color: white;
+            margin: 5px 15px 5px 0;
+            border-radius: 15px;
+        }
+
+        .text-contain{
+            font-size: small;
+        }
+
+        ion-chip {
+            padding: 0 5px;
+            background: #fff;
+    
+            img {
+              height: 25px;
+              margin-right: 8px;
+            }
+    
+            ion-label {
+              font-size: small;
+            }
+        }
+    }
+}
+
+ion-footer{
+    background: white;
+    ion-item{
+        padding: 10px 5px;
+
+        ion-chip{
+            --background: transparent;
+            ion-icon{
+                margin: unset;
+            }
+        }
+        ion-icon{
+            font-size: xx-large;
+        }
+
+        .getPackage{
+            outline: unset;
+            text-align: center;
+            height: 50px;
+            width: 100%;
+            color: #fff;
+            background: linear-gradient(to right top, #FF6000, #f99958);
+            font-family: 'Geometria';
+            border: solid 1px #fff;
+            border-radius: 10px;
+            font-size: large;
+        }
+    }
+}

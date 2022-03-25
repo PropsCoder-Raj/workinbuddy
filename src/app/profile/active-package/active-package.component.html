@@ -1,0 +1,72 @@
+<ion-header class="ion-no-border" mode="ios">
+  <ion-toolbar mode="ios" color="white">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-back-button color="orange" text=""></ion-back-button>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="orange" mode="md">Active Package</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true" [scrollEvents]="true">
+
+   <div class="container" *ngIf="!activePackageStatus">
+    <div class="ion-text-center">
+      <ion-icon name="albums" color="orange"></ion-icon>
+    </div>
+    <div><b>No Active Package</b></div>
+  </div>
+
+
+  <ion-grid *ngIf="activePackageStatus">
+    <ion-row>
+      <ion-col size="12">
+        <div class="dicount-cart">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="7" class="ion-text-center one_half">
+                <h1>{{amountWithDiscount}} AED</h1>
+                <h4><s>{{amount}} AED</s></h4>
+              </ion-col>
+              <ion-col size="5" class="ion-text-center two_half">
+                <h4>{{flatDiscount}}%</h4>
+                <h6>Flat Discount</h6>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </ion-col>
+
+      <ion-col size="12">
+        <div class="card-details">
+          <h5>Package Name: {{packageName}}</h5>
+          <h5>Package Validity: {{packageValidity}} Days</h5>
+          <h5>No of Check-ins Allowed: {{checkIns}}</h5>
+          <h5>Available Check-ins: {{userCheckins}}</h5>
+          <h5>No of Free Hours to Meeting: {{hours}} Hours</h5>
+        </div>
+      </ion-col>
+
+      <ion-col size="12">
+        <div class="card-details">
+          <h6>Amenities for selected package</h6>
+          <div>
+            <ng-container *ngFor="let item of features">
+              <ion-badge color="orange">{{item.name}}</ion-badge>
+            </ng-container>
+          </div>
+        </div>
+      </ion-col>
+
+      <ion-col size="12">
+        <div class="card-details">
+          <h6>Additional Info</h6>
+          <div [innerHTML]="information"></div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>  

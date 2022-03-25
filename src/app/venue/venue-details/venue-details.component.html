@@ -1,0 +1,186 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="ion-no-padding">
+    <button class="button-1">
+        <ion-back-button  color="orange" mode="ios" text=""></ion-back-button>
+    </button>
+    
+
+    <button class="button-2" id="likeSection" (click)="like()">
+      <ion-chip color="orange">
+        <ion-icon class="ion" name="heart-outline" id="likeIcon"></ion-icon>
+      </ion-chip>
+    </button>
+    <button class="button-2" id="unlikeSection" (click)="unlike()" style="display: none;">
+      <ion-chip color="orange">
+        <ion-icon class="ion" name="heart" id="unlikeIcon"></ion-icon>
+      </ion-chip>
+    </button>
+
+    <ion-slides class="orange_Slide" pager="true">
+      <ng-container *ngFor="let item of mediaArr">
+        <ion-slide>
+          <img *ngIf="item.type.includes('image')" src="{{item.icon}}" alt="" class="bg">
+          <video *ngIf="item.type.includes('video')" autoplay loop muted>
+            <source src="{{item.icon}}" type="video/mp4">
+          </video>  
+        </ion-slide>
+      </ng-container>
+    </ion-slides>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid class="main-grid-card">
+    <ion-row>
+      <ion-col size="12">
+        <h5>{{venueName}}</h5>
+      </ion-col>
+      <ion-col size="12" *ngIf="address !== ''">
+        <div class="location">
+          <ion-chip color="dark">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <ion-label>{{address}}</ion-label>
+          </ion-chip>
+        </div>
+      </ion-col>
+      
+                      
+      <ion-col size="12">
+        <div class="star">
+          <ng-container *ngIf="starsCount === 1">
+            <ion-icon class="active" name="star"></ion-icon>
+            <ion-icon class="deactive" name="star"></ion-icon>
+            <ion-icon class="deactive" name="star"></ion-icon>
+            <ion-icon class="deactive" name="star"></ion-icon>
+            <ion-icon class="deactive" name="star"></ion-icon>
+          </ng-container>
+          
+          <ng-container *ngIf="starsCount === 1">
+            <ion-icon class="active" name="star"></ion-icon>
+            <ion-icon class="active" name="star"></ion-icon>
+            <ion-icon class="deactive" name="star"></ion-icon>
+            <ion-icon class="deactive" name="star"></ion-icon>
+            <ion-icon class="deactive" name="star"></ion-icon>
+          </ng-container>
+          
+          <ng-container *ngIf="starsCount === 3">
+            <ion-icon class="active" name="star"></ion-icon>
+            <ion-icon class="active" name="star"></ion-icon>
+            <ion-icon class="active" name="star"></ion-icon>
+            <ion-icon class="deactive" name="star"></ion-icon>
+            <ion-icon class="deactive" name="star"></ion-icon>
+          </ng-container>
+          
+          <ng-container *ngIf="starsCount === 4">
+            <ion-icon class="active" name="star"></ion-icon>
+            <ion-icon class="active" name="star"></ion-icon>
+            <ion-icon class="active" name="star"></ion-icon>
+            <ion-icon class="active" name="star"></ion-icon>
+            <ion-icon class="deactive" name="star"></ion-icon>
+          </ng-container>
+          
+          <ng-container *ngIf="starsCount === 5">
+            <ion-icon class="active" name="star"></ion-icon>
+            <ion-icon class="active" name="star"></ion-icon>
+            <ion-icon class="active" name="star"></ion-icon>
+            <ion-icon class="active" name="star"></ion-icon>
+            <ion-icon class="active" name="star"></ion-icon>
+          </ng-container>
+        </div>    
+      </ion-col>
+
+      
+      <ion-col size="12" *ngIf="features.length > 0">
+        <h6>Facilities</h6>
+      </ion-col>
+
+      
+      <ion-col size="12" *ngIf="features.length > 0">
+        <div class="facilities">
+          <ion-row>
+            <ion-col class="ion-text-center" size="12">
+              <ng-container *ngFor="let item of features">
+                <ion-chip color="orange">
+                  <img src="{{item.icon}}" alt="">
+                  <ion-label>{{item.name}}</ion-label>
+                </ion-chip>
+              </ng-container>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-col>
+
+      <ion-col size="12">
+        <div class="location-card">
+          <h6>Location</h6>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6" class="one_half">
+                {{address}}
+              </ion-col>
+              <ion-col size="6" class="two_half">
+                <div #mapElement style="height: 100px;width: 100%;"></div>
+                <!-- <img src="assets/img/map1.png" alt=""> -->
+              </ion-col>
+              <ion-col size="12">
+                <ion-button color="orange" mode="ios" size="small" expand="block" fill="solid" (click)="getDirections()"> GET DIRECTIONS</ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>       
+      </ion-col>
+
+      <ion-col size="12" *ngIf="aboutVenue !== ''">
+        <div class="location-card">
+          <h6>About Venue</h6>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <div>
+                  {{aboutVenue}}
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </ion-col>
+
+      <ion-col size="12" *ngIf="reviews.length > 0">
+        <div class="reviews-card">
+          <h6>Reviews</h6>
+          <ion-item lines="none">
+            <ion-label>
+              <p><b>Jack Wilson</b></p>
+              <p>Hot desk member</p>
+            </ion-label>
+            <ion-text>
+              <div class="star">
+                <i class="fa fa-star" area-hidden="true"></i>
+                <i class="fa fa-star" area-hidden="true"></i>
+                <i class="fa fa-star" area-hidden="true"></i>
+                <i class="fa fa-star" area-hidden="true"></i>
+              </div>
+              <div>21 May 2021</div>
+            </ion-text>
+          </ion-item>
+        </div>
+      </ion-col>
+
+      <ion-col size="12">
+        <div class="bottom-btn">
+          <button [routerLink]="['/venue/scan-qr']">
+            Scan Code
+          </button>
+        </div>
+      </ion-col>
+      
+      
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+
+
+
+

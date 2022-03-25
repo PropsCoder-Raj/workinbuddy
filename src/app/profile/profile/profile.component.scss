@@ -1,0 +1,158 @@
+ion-header{
+    background: linear-gradient(to left top, #ff6000, #ffaa70);
+  }
+  
+  
+  ion-content {
+  
+    ion-toolbar {
+  
+      --background: transparent;
+      ion-button {
+        ion-icon {
+          color: #fff;
+          font-size: xx-large;
+          font-weight: bold;
+        }
+        ion-title{
+          color: #fff;
+          text-align: center;
+        }
+      }
+    }
+  
+    ion-segment {
+      margin: 0 10px;
+    }
+    
+    ion-segment-button {
+      text-transform: capitalize;
+      transform: scale(.8,.8);
+      --indicator-color: transparent;
+      color: #fff;
+    
+      ion-label {
+        font-size: medium;
+        position: relative;
+        // left: -17px;
+        text-align: center;
+        font-weight: bolder;
+      }
+    }
+    
+    .segment-button-checked {
+      color: #fff;
+      font-weight: 800;
+    }
+    
+    .segment-button-checked:before {
+      content: "";
+      position: absolute;
+      left: 10%;
+      bottom: -11%;
+      width: 80%;
+      border-bottom: 4px solid #fff;
+    
+    }
+  
+    .mainBody{
+      background: linear-gradient(to left bottom, #ff6000, #ffaa70);
+      height: auto;
+    }
+  
+    .profileFields{
+      h2{
+        font-size: medium;
+        font-weight: 800;
+        color: #fff;
+      }
+      h5{
+        font-size: small;
+        color: #fff;
+      }
+    }
+  
+    .bgTop {
+      position: fixed;
+      top: -7%;
+      height: auto;
+      z-index: -1;
+    }
+  
+    .img {
+      border-radius: 50%;
+      margin-top: 10px;
+      width: 36px;
+    }
+  
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 40%;
+    }
+  
+    h1 {
+      font-weight: bold;
+      color: #fff;
+    }
+  
+    h4 {
+      text-align: center;
+      font-weight: bold;
+    }
+  
+    .topContent {
+      .card {
+        ion-item {
+          background: #FFFFFF;
+          box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.15);
+          border-radius: 10px;
+          margin: 10px 0;
+  
+          ion-label {
+            font-family: 'Geometria';
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  
+    hr {
+      background: #000;
+      margin: 40px 15px 10px 15px;
+    }
+  
+    .supportContent {
+      padding: 10px;
+  
+      h4 {
+        text-align: left;
+        font-weight: bold;
+      }
+  
+      .card {
+        ion-item {
+          background: #FFFFFF;
+  
+          ion-label {
+            font-family: 'Geometria';
+            color: #000;
+          }
+        }
+      }
+  
+      ion-list {
+        .card {
+          ion-item {
+            background: #FFFFFF;
+  
+            ion-label {
+              font-family: 'Geometria';
+              color: #000;
+            }
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,7 @@
+{
+  "name": "workinbuddy",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

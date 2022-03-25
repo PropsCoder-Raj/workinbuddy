@@ -1,0 +1,109 @@
+ion-header{
+    ion-toolbar{
+        ion-text{
+            font-weight: bold;
+            font-size: large;
+        }
+        ion-icon{
+          font-size: x-large;
+        }
+    }
+}
+ion-content{
+    h2{
+        font-weight: bold;
+    }
+
+    .package-list-search-contain{
+        --background: transparent !important;
+        padding: 5px 10px;
+        border-radius: 10px;
+    
+        ion-icon{
+          color: white;
+          background: white;
+          font-size: xx-large;
+        }
+    
+        ion-label{
+          font-size: medium;
+          color: white;
+          font-weight: 500;
+        }
+    
+        .input-container {
+          display: -ms-flexbox; /* IE10 */
+          display: flex;
+          width: 100%;
+          border-radius: 10px;
+        }
+        
+        .icon {
+          padding: 5px 10px 10px 5px;
+          
+          color: #FF6000;
+          text-align: center;
+          margin: 5px 0;
+          font-size: x-large;
+          border: solid 1px #FF6000;
+          border-left: unset;
+          border-bottom-right-radius: 10px;
+          border-top-right-radius: 10px;
+        }
+
+        .icon1 {
+            margin: 10px 0;
+            padding-left: 20px;
+            padding-right: unset;
+            background: white;
+            color: #FF6000;
+            text-align: center;
+            font-size: x-large;
+        }
+        
+        .input-field {
+          width: 100%;
+          padding: 5px;
+          margin: 5px 0;
+          outline: unset;
+          border: solid 1px #FF6000;
+          border-right: unset;
+          border-bottom-left-radius: 10px;
+          border-top-left-radius: 10px;
+          font-weight: lighter;
+    
+          ::placeholder{
+            color: #BDBDBD;
+          }
+        }
+    } 
+
+    .place-names{
+      ion-chip{
+        background: transparent;
+        padding: 10px 20px;
+        font-size: small;
+        font-weight: 800;
+        width: 100%;
+        height: auto;
+        
+        i{
+          margin-right: 10px;
+        }
+      }
+    }
+
+    .container {
+        text-align: center;
+      
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        img{
+            height: 7rem;
+        }
+    }    
+
+}    

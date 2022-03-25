@@ -1,0 +1,71 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/auth/signin']" color="orange" mode="ios">
+        <ion-text>Skip</ion-text>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+
+  <ion-slides (ionSlideDidChange)="slideChanged()" class="orangeSlide" pager="true" #slider>
+    <ion-slide>
+      <ion-grid>
+        <ion-row>
+          <img src="assets/img/onboard one-01.png" alt="">
+        </ion-row>
+        <ion-row style="padding: 20px;">
+          <ion-col>
+            <div class="title-slider-content ion-text-left">Choose the venue</div>
+            <div class="slider-content ion-text-left">
+              We have 100+ work spaces, choose your work space according to your comfort and all our work space was managed well.
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-grid>
+        <ion-row>
+          <img src="assets/img/onboard two-01.png" alt="">
+        </ion-row>
+        <ion-row style="padding: 20px;">
+          <ion-col>
+            <div class="title-slider-content ion-text-left">Choose payment type</div>
+            <div class="slider-content ion-text-left">
+              Copy Our payments are secure. Choose you comfort way of payment and book your venue without hassale of present payment
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+
+
+    <ion-slide>
+      <ion-grid>
+        <ion-row>
+          <img src="assets/img/onboard three-01.png" alt="">
+        </ion-row>
+        <ion-row style="padding: 20px;">
+          <ion-col>
+            <div class="title-slider-content ion-text-left">Start your work</div>
+            <div class="slider-content ion-text-left">
+              Once if you have booked your workspace, start your work at your lovable workspace with world class interiors.
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <div class="swiper-pagination-bullet"></div>
+  <ion-button *ngIf="2 > count" style="background: linear-gradient(to left bottom, #ff6000, #ffaa70);" mode="ios" size="small" (click)="swipeNext()">Next</ion-button>
+  <ion-button *ngIf="count === 2" style="background: linear-gradient(to left bottom, #ff6000, #ffaa70);" mode="ios" size="small" (click)="home()">Next</ion-button>
+</ion-footer>

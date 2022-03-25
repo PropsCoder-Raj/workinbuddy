@@ -1,0 +1,111 @@
+<ion-header class="ion-no-border" mode="ios">
+  <ion-toolbar color="transparent" mode="ios">
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/home']">
+        <ion-back-button text="" color="white"></ion-back-button>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="white" class="ion-text-center" mode="md">Profile</ion-title>
+    <ion-buttons slot="end" mode="ios">
+      <ion-button>
+        &nbsp;&nbsp;&nbsp;
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+  <div class="mainBody">
+    <ion-grid style="padding-bottom: unset;">
+      <ion-row style="padding-bottom: unset;">
+        <ion-col size="12">
+          <div>
+            <img style="height: 9rem;width: 9rem;" src="{{userS.userPhotoUrl}}" class="center img" alt="">
+            <h4 style="color: white;">{{userS.userName === '' ? 'User' : userS.userName}}</h4>
+          </div>
+        </ion-col>
+
+        <ion-col size="7">
+          <ion-item class="profileFields ion-no-padding" color="transparent" lines="none">
+            <ion-label>
+              <h2>Email</h2>
+              <h5>{{userS.userEmail === '' ? '-' : userS.userEmail}}</h5>
+            </ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col size="5">
+          <ion-item class="profileFields ion-no-padding" color="transparent" lines="none">
+            <ion-label>
+              <h2>Mobile Number</h2>
+              <h5>{{userS.userPhoneNumber === '' ? '-' : userS.userPhoneNumber}}</h5>
+            </ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <div class="supportContent" *ngIf="segmentValue === '1'">
+
+            <h4>General</h4>
+            <div class="card">
+              <ion-item lines="none" class="ion-no-padding" [routerLink]="['/profile/edit-profile']">
+                <ion-icon name="aperture-outline" slot="start"></ion-icon>
+                <ion-label>Account Setting</ion-label>
+              </ion-item>
+            </div>
+
+            <div class="card">
+              <ion-item lines="none" class="ion-no-padding" [routerLink]="['/profile/active-package']">
+                <ion-icon name="diamond-outline" slot="start"></ion-icon>
+                <ion-label>My Active Package</ion-label>
+              </ion-item>
+            </div>
+
+            <div class="card">
+              <ion-item lines="none" class="ion-no-padding" [routerLink]="['/profile/checkins-history']">
+                <ion-icon name="shield-checkmark-outline" slot="start"></ion-icon>
+                <ion-label>Check-Ins History</ion-label>
+              </ion-item>
+            </div>
+
+            <div class="card">
+              <ion-item lines="none" class="ion-no-padding" [routerLink]="['/profile/package-history']">
+                <ion-icon name="albums-outline" slot="start"></ion-icon>
+                <ion-label>Package History</ion-label>
+              </ion-item>
+            </div>
+
+            <div class="card">
+              <ion-item lines="none" class="ion-no-padding" [routerLink]="['/profile/wallet-history']">
+                <ion-icon name="wallet-outline" slot="start"></ion-icon>
+                <ion-label>Wallet History</ion-label>
+              </ion-item>
+            </div>
+
+            
+            <div class="card">
+              <ion-item lines="none" class="ion-no-padding" [routerLink]="['/profile/auto-renewal-history']">
+                <ion-icon name="repeat-outline" slot="start"></ion-icon>
+                <ion-label>Auto Renewal Packages</ion-label>
+              </ion-item>
+            </div>
+
+            <div class="card">
+              <ion-item lines="none" class="ion-no-padding" (click)="logout()">
+                <ion-icon name="power" slot="start"></ion-icon>
+                <ion-label>Logout</ion-label>
+              </ion-item>
+            </div>
+
+          </div>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

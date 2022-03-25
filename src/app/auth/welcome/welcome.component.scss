@@ -1,0 +1,43 @@
+ion-toolbar{
+    --background: transparent;
+
+    ion-button{
+        ion-icon{
+            font-size: xx-large;
+            font-weight: bold;
+        }
+    }
+}
+
+ion-content{
+
+    .title-slider-content{
+        font-style: normal;
+        font-weight: bold;
+        font-size: large;
+        line-height: 30px;
+        color: #FF6000;
+    }
+
+    .slider-content{
+        padding: 20px 0;
+        font-style: normal;
+        font-weight: normal;
+        font-size: medium;
+        line-height: 28px;
+    }
+}
+
+ion-footer{
+
+    ion-button{
+        width: 120px;
+        --background: linear-gradient(to right top, #FF6000, #f99958);
+        font-family: 'Geometria';
+        color: #fff;
+        border-radius: 10px;
+        margin: 15px;
+        float: right;
+        font-size: large;
+    }
+}

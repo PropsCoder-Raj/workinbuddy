@@ -1,0 +1,76 @@
+<ion-header class="ion-no-border" mode="ios">
+  <ion-toolbar mode="ios" color="white">
+    <ion-buttons slot="start">
+      <ion-buttons slot="start">
+        <ion-back-button color="orange" text=""></ion-back-button>
+      </ion-buttons>
+    </ion-buttons>
+    <ion-title color="orange" mode="md">Auto Renewal Packages</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ng-container>
+
+    <div class="container" *ngIf="historyArr.length === 0 && !skeletonStatus">
+      <div class="ion-text-center">
+        <img src="assets/img/history.png" alt="">
+      </div>
+      <div><b>No Auto Renewal <br> Package History</b></div>
+    </div>
+
+    
+
+    <ion-grid>
+      <ion-row class="packages">
+        
+      <ng-container *ngIf="skeletonStatus">
+        <ion-col class="items" size="6">
+          <ion-card mode="ios">
+            <ion-card-header>
+              <p class="ion-text-center"><ion-skeleton-text style="width: 30%;margin-left: 35%;height: 16px;" animated></ion-skeleton-text></p>
+            </ion-card-header>
+            <ion-card-content>
+              <p class="ion-text-center"><ion-skeleton-text style="width: 60%;margin-left: 20%;height: 30px;" animated></ion-skeleton-text></p>
+            </ion-card-content>
+          </ion-card>  
+        </ion-col>
+        <ion-col class="items" size="6">
+          <ion-card mode="ios">
+            <ion-card-header>
+              <p class="ion-text-center"><ion-skeleton-text style="width: 30%;margin-left: 35%;height: 16px;" animated></ion-skeleton-text></p>
+            </ion-card-header>
+            <ion-card-content>
+              <p class="ion-text-center"><ion-skeleton-text style="width: 60%;margin-left: 20%;height: 30px;" animated></ion-skeleton-text></p>
+            </ion-card-content>
+          </ion-card>  
+        </ion-col>
+      </ng-container>
+
+        <ng-container>
+          <ion-col class="items" size="6" *ngFor="let item of historyArr">
+            <ion-card mode="ios">
+              <ion-card-header>
+                <p>{{item.packageData.name}}</p>
+              </ion-card-header>
+              <ion-card-content>
+                <p>AED {{item.packageData.amount}}</p>
+                <div style="font-size: x-small;font-weight: 800;line-height: inherit;text-align: center;">Next Renewal: <br> {{ item.data.autoRenewalDate.toDate() | date: 'dd/MM/yyyy hh:mm a'}}</div>
+                <br>
+                <ion-row style="border: unset;">
+                  <ion-col size="12" class="ion-text-center">
+                    <ion-chip color="danger" outline="true" (click)="delete(item.data.docId)">
+                      <ng-container *ngIf="!loader"> Cancel </ng-container>
+                      <ion-spinner color="danger" *ngIf="loader"></ion-spinner>
+                    </ion-chip>
+                  </ion-col>
+                </ion-row>
+              </ion-card-content>
+            </ion-card>  
+          </ion-col>
+        </ng-container>
+      </ion-row>
+    </ion-grid>
+    
+  </ng-container>
+</ion-content>

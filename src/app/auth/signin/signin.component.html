@@ -1,0 +1,77 @@
+<ion-content fullscreen="true">
+
+  <div id="recaptcha-container" style="display: none;"></div>
+
+  <div id="TopMainBG"
+    style="background: url(assets/img/topShape.png); background-repeat: no-repeat; background-position-y: -6rem;min-height: 830px;">
+    <div id="TopMainImg"
+      style="background: url(assets/svg/whiteLogo.svg); background-repeat: no-repeat;background-position: left top;min-height: 830px">
+      <div style="padding-top: 11rem;position: relative;">
+        <ion-grid class="MainContain">
+          <ion-row>
+            <ion-col>
+              <div>
+                <h1 style="margin: 0;">Sign in</h1>
+              </div>
+              <div style="margin-bottom: 2px;">
+                <label>Enter your Mobile No.</label>
+                <ion-row>
+                  <ion-col size="3">
+                    <input type="text" [(ngModel)]="contryCode" placeholder="Enter Contry Code">
+                  </ion-col>
+                  <ion-col size="9">
+                    <input type="number" [(ngModel)]="number" placeholder="Enter Mobile No.">
+                  </ion-col>
+                </ion-row>
+              </div>
+              <div class="animate__animated animate__fadeInUp animate__faster" *ngIf="sendOtp"
+                style="margin-bottom: 2px;">
+                <div>
+                  <label>Enter OTP</label>
+                </div>
+                <div class="ion-text-center" style="margin-top: 10px;">
+                  <ng-otp-input (onInputChange)="onOtpChange($event)" [config]="config"></ng-otp-input>
+                </div>
+              </div>
+              <div class="ionButton">
+                <ion-button expand="block" mode="ios" *ngIf="!sendOtp" (click)="send_otp()">
+                  <ng-container *ngIf="!loadingSendOTP">
+                    Send OTP
+                  </ng-container>
+                  <ion-spinner *ngIf="loadingSendOTP"></ion-spinner>
+                </ion-button>
+                <ion-button expand="block" mode="ios" *ngIf="sendOtp" (click)="verify_otp()">
+                  <ng-container *ngIf="!loadingVirifyOTP">
+                    Verify OTP
+                  </ng-container>
+                  <ion-spinner *ngIf="loadingVirifyOTP"></ion-spinner>
+                </ion-button>
+              </div>
+              <p class="ion-text-center"> New here ? <ion-text (click)="signUp()" color="orange"><b>Sign Up</b></ion-text>
+              </p>
+              <div class="ion-text-center" style="padding: 15 px 0;font-size: large;">
+                <ion-text><b>OR</b></ion-text>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="6">
+              <ion-button mode="ios" expand="block" color="white" class="google-button" [disabled]="googleLoader" (click)="loginWithGoogle()">
+                <img src="assets/img/google.svg" alt="" style="height: 1.6rem;" *ngIf="!googleLoader">
+                <ion-spinner color="orange" *ngIf="googleLoader"></ion-spinner>
+              </ion-button>
+            </ion-col>
+            <ion-col size="6">
+              <ion-button mode="ios" expand="block" class="facebook-button" [disabled]="facebookLoader" (click)="loginWithFacebook()">
+                <i class="fa fa-facebook" aria-hidden="true" *ngIf="!facebookLoader"></i>
+                <ion-spinner color="white" *ngIf="facebookLoader"></ion-spinner>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+  </div>
+
+
+</ion-content>

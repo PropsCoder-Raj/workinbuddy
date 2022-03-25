@@ -1,0 +1,82 @@
+ion-content{
+    h2{
+        font-weight: bold;
+    }
+
+    .packages{
+      .items{
+        padding: unset;
+        ion-card{
+          margin: 5px;background: #FCF8F7;box-shadow: unset;
+          ion-card-header{
+            padding:unset;
+            p{
+              text-align: center;color: #FF8010;font-weight: 600;font-size: 16px;
+            }
+          }
+          ion-card-content{
+            padding: 5px;
+            p{
+              text-align: center;color: #FF8010;font-weight: 600;font-size: 22px;
+            }
+            ion-row{
+              border-bottom:1px solid #ffc299c4;
+              .col_1{
+                padding: unset;
+                ion-icon{
+                  margin: 0;position: absolute;top: 50%;transform: translate(-50%, -50%);left: 50%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .getPackage{
+        text-align: center;
+        height: 50px;
+        width: 100%;
+        color: #fff;
+        background: linear-gradient(to right top, #FF6000, #f99958);
+        font-family: 'Geometria';
+        border: solid 1px #fff;
+        border-radius: 10px;
+        font-size: large;
+    }
+
+    .inputs{
+      label{
+        font-style: normal;
+        font-weight: normal;
+        font-size: small;
+        line-height: 18px;
+
+        color: #FF6000;
+      }
+
+      input{
+        outline: unset;
+          width: 100%;
+          border: 1px solid #FF6000;
+          border-radius: 10px;
+          margin-top: 5px;
+          font-size: small;
+          padding: 10px;
+      }
+
+      textarea{
+        outline: unset;
+          width: 100%;
+          border: 1px solid #FF6000;
+          border-radius: 10px;
+          margin-top: 5px;
+          font-size: small;
+          padding: 10px;
+      }
+
+      .inputGroup{
+        margin-top: 10px;
+      }
+    }
+}

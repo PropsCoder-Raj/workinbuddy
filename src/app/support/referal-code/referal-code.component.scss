@@ -1,0 +1,64 @@
+ion-header{
+    background: linear-gradient(to left top, #ff6000, #ffaa70);
+  }  
+  
+  ion-content {
+  
+    .topSection{
+      background: linear-gradient(to left bottom, #ff6000, #ffaa70);
+  
+      ion-card{
+        border-radius: 10px;
+        box-shadow: unset;
+        .referalCodeBox {
+          background: rgba($color: #FF6000, $alpha: 0.1);
+          border-radius: 10px;
+      
+          ion-item {
+            --background: transparent;
+      
+            ion-label {
+              font-family: 'Geometria';
+            }
+          }
+        }
+      }
+    }
+  
+    
+    .dataSection{
+      ion-item{
+          h3{
+              font-weight: 800;
+              color: black;
+          }
+          div{
+              font-size: x-small;
+              color: gray;
+          }
+      }
+    }
+    ion-grid {
+  
+      h3 {
+        font-weight: bold;
+      }
+  
+      div {
+        h6 {
+          color: gray;
+          font-weight: bold;
+        }
+      }
+  
+      h6 {
+        font-weight: bold;
+      }
+  
+      ol {
+        li {
+          margin: 5px 0;
+        }
+      }
+    }
+  }

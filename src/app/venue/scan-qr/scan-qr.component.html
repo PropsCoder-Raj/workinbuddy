@@ -1,0 +1,28 @@
+
+<ion-content color="dark" fullscreen="true">
+
+  
+  <ion-toolbar color="traansparent">
+    <ion-buttons slot="start">
+      <ion-buttons slot="start" mode="ios">
+        <ion-button (click)="stopCamera(); home()">
+          <ion-icon color="orange" name="chevron-back-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-buttons>
+  </ion-toolbar>
+  
+  <div class="container">
+    <ion-spinner *ngIf="loaderStatus" mode="md" color="orange"></ion-spinner>
+    <div *ngIf="!loaderStatus">
+      <img class="animate__animated animate__flash animate__repeat-2" src="assets/img/square.png" alt="">
+      <h5>Scan QR</h5>
+    </div>
+  </div>
+
+  <input #fileinput type="file" accept="image/*;capture=camera" hidden>
+  <video style="height: 100%;width: 100%;" #video [hidden]="!scanActive" width="100%"></video>
+  <canvas style="height: 100%;width: 100%;" #canvas hidden></canvas>
+ 
+ 
+</ion-content>

@@ -1,0 +1,50 @@
+<ion-header class="ion-no-border" mode="ios">
+  <ion-toolbar mode="ios" color="white">
+    <ion-buttons slot="start">
+      <ion-buttons slot="start" (click)="closeChatBot()">
+        <ion-back-button color="orange" text=""></ion-back-button>
+      </ion-buttons>
+    </ion-buttons>
+    <ion-title color="orange" mode="md">Contact Us</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true" [scrollEvents]="true" >
+
+  <ion-grid class="packages">
+    <ion-row>
+      <ion-col class="items" size="12">
+        <ion-card mode="ios">
+          <ion-card-header>
+            <p>Contact Us Request</p>
+          </ion-card-header>
+          <ion-card-content>
+            <div class="inputs">
+              <div class="inputGroup">
+                <label>Name</label>
+                <input type="text" [(ngModel)]="userS.userName" placeholder="Enter Name">
+              </div>
+              <div class="inputGroup">
+                <label>Email</label>
+                <input type="email" [disabled]="userS.userProvider === 'google'" [(ngModel)]="userS.userEmail" placeholder="Enter Email">
+              </div>
+              <div class="inputGroup">
+                <label>Mobile Number</label>
+                <input type="text" [disabled]="userS.userProvider === 'phone'" [(ngModel)]="userS.userPhoneNumber" placeholder="Enter Mobile Number">
+              </div>
+              <div class="inputGroup">
+                <label>Subject</label>
+                <div><textarea name="subject" [(ngModel)]="subject" id="" rows="10"  placeholder="Subject"></textarea></div>
+              </div>
+            </div>
+            <br>
+            <button [disabled]="loader" class="getPackage" (click)="submit()">
+              <ng-container *ngIf="!loader">Submit</ng-container>
+              <ion-spinner mode="md" color="white" *ngIf="loader"></ion-spinner>
+            </button>
+          </ion-card-content>
+        </ion-card>  
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

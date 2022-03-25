@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1032809104603",
+    "project_id": "workingbuddy-67af6",
+    "storage_bucket": "workingbuddy-67af6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1032809104603:android:a43e529603082e903178fe",
+        "android_client_info": {
+          "package_name": "com.tectiq.workinbuddy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1032809104603-s2lbj98a33qcaoc052g4992m3vvkp7jc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tectiq.workinbuddy",
+            "certificate_hash": "0bd3563076d28f6fe91bee47b1af8feb9ab22a44"
+          }
+        },
+        {
+          "client_id": "1032809104603-r6rs3bilu4fc1mbfumkmk660bmhq5c92.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQirs9Cg93qd1ni2QQuVbWTIRmmWaetxM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1032809104603-r6rs3bilu4fc1mbfumkmk660bmhq5c92.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

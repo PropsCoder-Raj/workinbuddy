@@ -1,0 +1,90 @@
+ion-content{
+    ion-grid{
+        padding: 0 20px;
+        .profilePhoto{
+            border-radius: 50%;
+            height: 8rem;
+        }
+        .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+        .upload-btn-wrapper input[type=file] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+        }
+        .btn-upload {
+            color: #6a8dfa;
+            background-color: white;
+            font-size: 12px;
+            font-weight: bold;    
+        } 
+
+        .editForm{
+            h1{
+                font-style: normal;
+                font-weight: bold;
+                font-size: xx-large;
+                line-height: 45px;
+        
+                color: #FF6000;
+            }
+    
+            label{
+                font-style: normal;
+                font-weight: normal;
+                font-size: small;
+                line-height: 18px;
+    
+                color: #FF6000;
+            }
+
+            input, select, ion-item{
+                width: 100%;
+                border: 1px solid #FF6000;
+                border-radius: 10px;
+                font-size: small;
+                margin-top: 5px;
+                outline: unset;
+                height: 3rem;
+            }
+    
+            input, select{
+                width: 100%;
+                border: 1px solid #FF6000;
+                border-radius: 10px;
+                margin-top: 5px;
+                font-size: small;
+                padding: 10px;
+                outline: unset;
+                height: 3rem;
+            }
+
+                ion-button{
+                    width: auto;
+                    --background: linear-gradient(to left bottom, #ff6000, #ffaa70);
+                    color: #fff;
+                    border-radius: 15px;
+                    margin: 15px;
+                    box-shadow: unset;
+                    font-size: large;
+                }    
+        }
+    }
+}
+
+ion-footer{
+    ion-button{
+            --background: linear-gradient(to right top, #FF6000, #f99958);
+            font-family: 'Geometria';
+            color: #fff;
+            border-radius: 15px;
+            margin: 15px;
+            box-shadow: unset;
+            font-size: large;
+    }
+}

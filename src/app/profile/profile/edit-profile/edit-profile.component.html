@@ -1,0 +1,104 @@
+<ion-header class="ion-no-border" mode="ios">
+  <ion-toolbar color="white" mode="ios">
+    <ion-buttons slot="start">
+      <ion-back-button color="orange" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title color="orange" mode="md" class="ion-text-center">Edit Profile</ion-title>
+    <ion-buttons slot="end">
+      &nbsp;&nbsp;&nbsp;
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" class="ion-text-center">
+        <img style="height: 8rem; width: 8rem" class="profilePhoto" src="{{photoURL}}" alt="">
+      </ion-col>
+      <ion-col size="12" class="ion-text-center">
+        <div class="upload-btn-wrapper">
+          <button class="btn-upload">Change Photo</button>
+          <input type="file" (change)="onImageSelected($event);" accept="image/*" name="myfile" />
+        </div>
+      </ion-col>
+      <ion-col size="12" class="editForm">
+        <div style="margin-bottom: 20px;">
+          <label>Name <b style="color: red;" *ngIf="mendatory">*</b></label>
+          <input type="text" [(ngModel)]="name" placeholder="Enter Name">
+        </div>
+      </ion-col>
+      <ion-col size="12" class="editForm">
+        <div style="margin-bottom: 20px;">
+          <label>Email <b style="color: red;" *ngIf="mendatory">*</b></label>
+          <input type="text" [(ngModel)]="email" placeholder="Enter Email" [disabled]="provider === 'gmail' || provider === 'facebook'">
+        </div>
+      </ion-col>
+      <ion-col size="12" class="editForm">
+        <div style="margin-bottom: 20px;">
+          <label>Mobile Number <b style="color: red;" *ngIf="mendatory">*</b></label>
+          <input type="text" [(ngModel)]="phoneNumber" [disabled]="provider === 'phone'" placeholder="Enter Mobile No.">
+        </div>
+      </ion-col>
+      
+      <ion-col size="6" class="editForm">
+        <div style="margin-bottom: 20px;">
+          <label>Age</label>
+          <input type="number" placeholder="Enter Age" [(ngModel)]="age">
+        </div>
+      </ion-col>
+
+      <ion-col size="6" class="editForm">
+        <div style="margin-bottom: 20px;">
+          <label>Gender</label>
+          <ion-item lines="none" mode="ios">
+            <ion-select placeholder="Select One" [(ngModel)]="gender">
+              <ion-select-option disabled="" value="">--select--</ion-select-option>
+              <ion-select-option value="male">Male</ion-select-option>
+              <ion-select-option value="female">Female</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+      </ion-col>
+      <ion-col size="12" class="editForm">
+        <div style="margin-bottom: 20px;">
+          <label>Country</label>
+          <ion-item lines="none" mode="ios">
+            <ion-select style="width: 100%" placeholder="Select One" [(ngModel)]="country">
+              <ion-select-option disabled="" value="">--select--</ion-select-option>
+              <ng-container *ngFor="let item of countries">
+                <ion-select-option value="{{item.name}}">{{item.name}}</ion-select-option>
+              </ng-container>
+            </ion-select>
+          </ion-item>
+        </div>
+      </ion-col>
+      
+      <ion-col size="12" class="editForm">
+        <div style="margin-bottom: 20px;">
+          <label>Date of Birth</label>
+          <ion-item lines="none" mode="ios">
+            <ion-datetime displayFormat="DD/MM/YYYY" placeholder="Select Date" [(ngModel)]="dob"></ion-datetime>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+<!-- 
+while(n>0)    
+{    
+m=n%10;    
+sum=sum+m;    
+n=n/10;    
+}
+-->
+
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-button expand="block" mode="ios" class="getPackage" (click)="editProfile()">
+    <ng-container *ngIf="!loader">Update Profile</ng-container>
+    <ion-spinner *ngIf="loader" mode="md"></ion-spinner>
+  </ion-button>
+</ion-footer>
